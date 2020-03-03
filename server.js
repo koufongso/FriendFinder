@@ -9,7 +9,7 @@ server.use(express.json());
 
 // get routing function
 // require("./app/routing/apiRoutes")(server);
-// require("./app/routing/htmlRoutes")(server);
+require("./app/routing/htmlRoutes")(server);
 
 // start the server
 server.listen(PORT,function(){
