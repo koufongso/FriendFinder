@@ -1,3 +1,6 @@
+// "database"
+var friends = require("./app/data/friends");
+
 // server setup
 var express = require("express");
 
@@ -8,7 +11,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 
 // get routing function
-// require("./app/routing/apiRoutes")(server);
+require("./app/routing/apiRoutes")(server,friends);
 require("./app/routing/htmlRoutes")(server);
 
 // start the server
