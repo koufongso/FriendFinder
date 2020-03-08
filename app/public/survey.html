@@ -53,9 +53,16 @@
         <form method="POST">
             <div class="form-body">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Please enter your name ..." required>
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="name"
+                        placeholder="Please enter your name ..." />
                 </div>
+                <div class="form-group">
+                    <label for="picture_url">Profile URL</label>
+                    <input class="form-control" type="url" id="picture_url" name="picture_url" pattern="https://.*"
+                        placeholder="Please enter your picture url ..." />
+                </div>
+
                 <br>
                 <h3>Please answer the following questions on the scale of 1 - 5 (1 is lowest, 5 is highest)</h3>
                 <br>
@@ -116,10 +123,16 @@
         // submit 
         $("#form-submit").on("click", function (event) {
             event.preventDefault();
+            var name = $("#name").val().trim();
+            var url = $("#picture_url").val().trim();
             var inputs = $("form .question .form-control input:checked");
-            if ($("#name").val() === "") {
-                alert("Please enter your name.")
-            } else if (inputs.length != questionList.length) {
+
+            if (name === "") {
+                alert("Please enter your name.");
+            } else if(url===""){
+                alert("Please enter your profile picture url.");
+            }
+            else if (inputs.length != questionList.length) {
                 alert("Please answer all the questions before submission.");
             } else {
                 var scores = [];
@@ -127,8 +140,8 @@
                     scores.push(parseInt(inputs[i].value));
                 }
                 var newData = {
-                    "name": $("#name").val().trim(),
-                    "photo": "",
+                    "name": name,
+                    "photo":url,
                     "scores": scores
                 }
 
@@ -141,9 +154,9 @@
                         render(this, data);
                         // clear
                         $("#name").val("");
-                        $( ".form-check-input" ).prop( "checked", false );
+                        $(".form-check-input").prop("checked", false);
                     }
-                }).fail(function(){
+                }).fail(function () {
                     alert("Opps, it seems something is wrong. Please try again.");
                 });
             }
@@ -152,6 +165,7 @@
         function render(button, data) {
             $(".modal-body").empty();
             $(".modal-body").append(`<h1>${data.name}</h1>`);
+            $(".modal-body").append(`<img src=${data.photo} alt="profile picture"></img>`);
             $("#btn-modal").click();
         }
 
