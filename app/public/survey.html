@@ -19,6 +19,12 @@
         crossorigin="anonymous"></script>
 
     <title>Survey</title>
+
+    <style>
+        body {
+            background-image: linear-gradient(-45deg, #ccccff, #ffccff, #ff99cc, #ff6699);
+        }
+    </style>
 </head>
 
 <body>
@@ -47,30 +53,64 @@
         </div>
     </div>
 
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/survey">Find Your Match</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/api/friends">API</a>
+        </li>
+    </ul>
 
-    <!--survey-->
-    <div class="container">
-        <form method="POST">
-            <div class="form-body">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input class="form-control" type="text" id="name" name="name"
-                        placeholder="Please enter your name ..." />
-                </div>
-                <div class="form-group">
-                    <label for="picture_url">Profile URL</label>
-                    <input class="form-control" type="url" id="picture_url" name="picture_url" pattern="https://.*"
-                        placeholder="Please enter your picture url ..." />
-                </div>
+    <div class="jumbotron jumbotron-fluid"
+        style="background-image: linear-gradient(-45deg,#ccccff, #ffccff,#ff99cc,#ff6699);">
+        <div class="container">
+            <h1 class="display-2 text-center text-white">Welcome to Frinder ;)</h1>
+            <p class="lead text-center">This is a simple app to find you a perosn with the best overall match</p>
+            <hr class="my-4">
 
-                <br>
-                <h3>Please answer the following questions on the scale of 1 - 5 (1 is lowest, 5 is highest)</h3>
-                <br>
+            <!--survey-->
+            <div class="container">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">Survey</div>
+                        <div class="card-body">
+                            <form method="POST">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" type="text" id="name" name="name"
+                                            placeholder="Please enter your name ..." />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="picture_url">Profile URL</label>
+                                        <input class="form-control" type="url" id="picture_url" name="picture_url"
+                                            pattern="https://.*" placeholder="Please enter your picture url ..." />
+                                    </div>
+
+                                    <br>
+                                    <h4>Please answer the following questions on the scale of 1 - 5 (1 is lowest, 5 is
+                                        highest)
+                                    </h4>
+                                    <br>
+                                </div>
+
+                                <button class="btn btn-primary" type="submit" id="form-submit">Submit & Match</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <button class="btn btn-primary" type="submit" id="form-submit">Submit & Match</button>
-        </form>
+        </div>
     </div>
+
+
+
+
+
 
 
     <script>
@@ -129,7 +169,7 @@
 
             if (name === "") {
                 alert("Please enter your name.");
-            } else if(url===""){
+            } else if (url === "") {
                 alert("Please enter your profile picture url.");
             }
             else if (inputs.length != questionList.length) {
@@ -141,7 +181,7 @@
                 }
                 var newData = {
                     "name": name,
-                    "photo":url,
+                    "photo": url,
                     "scores": scores
                 }
 

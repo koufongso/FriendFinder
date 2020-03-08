@@ -9,18 +9,37 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Home</title>
 
-
+    <style>
+        body {
+            background-image: linear-gradient(-45deg, #ccccff, #ffccff, #ff99cc, #ff6699);
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-                <div class="jumbotron">
-                    <h1 class="display-4 text-center">Welcome to Frinder ;)</h1>
-                    <hr class="my-4">
-                    <div class="text-center">
-                    <a class="btn btn-danger btn-lg" href="/survey" role="button">Let's GO!</a>
-                </div>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/survey">Find Your Match</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/api/friends">API</a>
+        </li>
+    </ul>
+
+    <div class="jumbotron jumbotron-fluid"
+        style="background-image: linear-gradient(-45deg,#ccccff, #ffccff,#ff99cc,#ff6699);">
+            <div class="container">
+            <h1 class="display-2 text-center text-white">Welcome to Frinder ;)</h1>
+            <p class="lead text-center">This is a simple app to find you a perosn with the best overall match</p>
+            <hr class="my-4">
+            <div class="text-center">
+                <a class="btn btn-danger btn-lg" href="/survey" role="button"
+                    style="height:50px; border-radius:25px">Let's GO!</a>
             </div>
+        </div>
     </div>
 </body>
 
