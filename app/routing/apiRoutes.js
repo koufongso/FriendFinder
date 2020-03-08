@@ -10,6 +10,7 @@ module.exports = function(server,friends){
     // post route to add user into the "database"
     server.post("/api/friends",function(req,res){
         friends.push(req.body);
+        res.status(200).send("success");
     });
 
 }
