@@ -85,7 +85,7 @@
             var inputs = $("form .question .form-control input:checked");
             if($("#name").val()===""){
                 alert("Please enter your name.")
-            }else if (inputs.length != questionList) {
+            }else if (inputs.length != questionList.length) {
                 alert("Please answer all the questions before submission.");
             } else {
                 var scores = [];
@@ -100,8 +100,8 @@
 
                 // console.log(JSON.stringify(data));
                 $.post("/api/friends", newData, function (data, status) {
-                    console.log(status);
-                    if (status === 200) {
+                    if (status == "success") {
+                        console.log(data);
                         alert("Success! Your information is in the database now.");
                     } else {
                         alert("Opps, it seems something is wrong. Please try again later.");
