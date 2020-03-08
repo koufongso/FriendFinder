@@ -63,7 +63,6 @@
 
             <button class="btn btn-primary" type="submit" id="form-submit">Submit & Match</button>
         </form>
-
     </div>
 
 
@@ -135,22 +134,23 @@
 
                 // console.log(JSON.stringify(data));
                 $.post("/api/friends", newData, function (data, status) {
+                    console.log(status);
                     if (status == "success") {
                         console.log(data);
                         alert("Success! Your information is in the database now.");
                         render(this, data);
-                    } else {
-                        alert("Opps, it seems something is wrong. Please try again later.");
+                        // clear
+                        $("#name").val("");
+                        $( ".form-check-input" ).prop( "checked", false );
                     }
-
-                    // clear
-                    $("#name").val("");
+                }).fail(function(){
+                    alert("Opps, it seems something is wrong. Please try again.");
                 });
             }
-
         });
 
         function render(button, data) {
+            $(".modal-body").empty();
             $(".modal-body").append(`<h1>${data.name}</h1>`);
             $("#btn-modal").click();
         }
