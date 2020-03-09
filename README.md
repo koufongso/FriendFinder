@@ -15,10 +15,10 @@
 
 * Note: for testing purpose, you can use this url [https://picsum.photos/200/300](https://picsum.photos/200/300) to generate random picture. 
 
-[!demo](demo/demo.gif)
+![demo](/demo/demo.gif)
 
 
 * server side validation in case some form value are modified on the client side.
 
-[!demo-server-side-validatoin](demo/demo-server-side-validation.gif)
+![demo-server-side-validatoin](/demo/demo-server-side-validation.gif)
 
